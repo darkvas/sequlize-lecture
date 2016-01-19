@@ -1,1 +1,33 @@
-initial
+{
+  "name": "jsgroup",
+  "version": "0.0.1",
+  "description": "sgdjfsjgfjsdgfjsgdfjgsdgfjf",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romashka50/JSGroup3.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "pupkin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/romashka50/JSGroup3/issues"
+  },
+  "homepage": "https://github.com/romashka50/JSGroup3#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "bookshelf": "^0.8.2",
+    "express": "4.13.3",
+    "knex": "^0.8.6",
+    "mongodb": "^2.0.43",
+    "mongoose": "^4.1.7",
+    "pg": "^4.4.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.9.0"
+  }
+}
