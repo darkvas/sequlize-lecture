@@ -98,7 +98,21 @@ var PersonHandler = function (app) {
             })
             .catch(function(error){
                 console.log(error);
-            })
+            });
+
+        //var id = req.body.id;
+        //Person
+        //    .findById(id)
+        //    .error(function(error){
+        //        console.log(error);
+        //    })
+        //    .success(function(result){
+        //        result
+        //            .getTepluchka()
+        //            .then(function(oO){
+        //                console.log(oO)
+        //            });
+        //    })
 
     }
 

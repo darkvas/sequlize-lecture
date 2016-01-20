@@ -9,7 +9,7 @@ module.exports = function(app) {
     var personHandler = new PersonHandler(app);
 
     personRouter.get('/', personHandler.getAll);
-    personRouter.get('/', personHandler.getAll);
+    personRouter.post('/', personHandler.createPerson);
     personRouter.post('/test', personHandler.forTest);
 
     //personRouter.get('/:id', personHandler.getOne);
