@@ -94,15 +94,15 @@ var UserHandler = function (app) {
         var name = req.params.name;
 
         User
-            .findOne({
+            .findAll({
                 where: {
-                    first: name /*{
+                    first: {
                         $like: name + '%'
-                    }*/
+                    }
                 }
             })
-            .then(function (user) {
-                res.status(200).send(user);
+            .then(function (users) {
+                res.status(200).send(users);
             })
             .catch(next)
     }
