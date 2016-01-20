@@ -1,6 +1,3 @@
-/**
- * Created by Roman on 20.08.2015.
- */
 module.exports = function(app) {
 
     var bodyParser = require('body-parser');
@@ -11,11 +8,11 @@ module.exports = function(app) {
     app.use(bodyParser.json());
 
     app.get('/', function (req, res, next) {
-        res.sendfile('index.html');
-        //res.status(200).send(req.ip);
+        //res.sendfile('index.html');
+        res.status(200).send(req.ip);
     });
 
-    app.use('/user', userRouter); //http://user/pupkin/90
+    app.use('/user', userRouter);
     app.use('/post', postRouter);
 
     app.use(function (err, req, res, next) {
@@ -23,5 +20,4 @@ module.exports = function(app) {
 
         res.status(status).send(err);
     });
-
 };

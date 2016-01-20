@@ -26,8 +26,8 @@ var PostHandler = function (app) {
         var post = Post.build({id: id});
 
         post
-            .destroy(function (post) {
-                res.status(200).send(post);
+            .destroy(function (postDeleted) {
+                res.status(200).send(postDeleted);
             })
             .catch(next);
     };

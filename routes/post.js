@@ -1,4 +1,3 @@
-
 module.exports = function(app) {
 
     var express = require('express');
@@ -7,12 +6,13 @@ module.exports = function(app) {
     var PostHandler = require('../handlers/post');
     var postHandler = new PostHandler(app);
 
-    postRouter.get('/', postHandler.getAll);
+    postRouter.route('/')
+        .get(postHandler.getAll)
+        .post(postHandler.create);
 
-    postRouter.post('/', postHandler.create);
-    postRouter.get('/:id', postHandler.getOne);
-    postRouter.delete('/:id', postHandler.remove);
-
+    postRouter.route('/:id')
+        .get(postHandler.getOne)
+        .delete(postHandler.remove);
 
     return postRouter;
 };

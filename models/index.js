@@ -6,4 +6,13 @@ module.exports = function (pgSequelize) {
 
     this.User.hasMany(this.Post, { foreignKey: 'user_id' });
     this.Post.belongsTo(this.User, { foreignKey: 'user_id' });
+
+    pgSequelize
+        .sync()
+        .then(function () {
+            console.log('Synced');
+        })
+        .catch(function (err) {
+            console.log('Error: ' + err);
+        });
 };

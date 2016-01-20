@@ -21,24 +21,34 @@ var UserHandler = function (app) {
 
         var id = req.params.id;
 
-        var user = User.build({id: id});
+        /*var user = User.build({id: id});
 
         user
             .destroy()
-            .then(function(user){
-                res.status(200).send(user);
+            .then(function(userDeleted) {
+                res.status(200).send(userDeleted);
+            })
+            .catch(next)
+        */
+
+        User
+            .destroy({
+                where: {id: id}
+            })
+            .then(function(userDeleted) {
+                res.status(200).send({deleted: userDeleted});
             })
             .catch(next)
     };
 
     this.getAll = function (req, res, next) {
 
-       User
-           .findAll()
-           .then(function(users){
-               res.status(200).send(users);
-           })
-           .catch(next)
+        User
+            .findAll()
+            .then(function (users) {
+                res.status(200).send(users);
+            })
+            .catch(next)
     };
 
     this.getOne = function (req, res, next) {
@@ -56,7 +66,28 @@ var UserHandler = function (app) {
                 res.status(200).send(user);
             })
             .catch(next)
-    }
+    };
+
+    this.update = function (req, res, next) {
+        var id = req.params.id;
+        var body = req.body;
+
+        User
+            .update({
+                first: body.first,
+                last: body.last
+            }, {
+                where: {id: id},
+                returning: true
+            })
+            .then(function (updateResult) {
+                console.log('updated count: ' + updateResult[0]);
+                console.log('updated rows: ' + updateResult[1]);
+
+                res.status(200).send(updateResult[1]);
+            })
+            .catch(next)
+    };
 
     this.findByName = function(req, res, next) {
 

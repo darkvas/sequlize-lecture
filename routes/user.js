@@ -1,4 +1,3 @@
-
 module.exports = function(app) {
 
     var express = require('express');
@@ -7,11 +6,17 @@ module.exports = function(app) {
     var UserHandler = require('../handlers/user');
     var userHandler = new UserHandler(app);
 
-    userRouter.get('/', userHandler.getAll);
-    userRouter.post('/', userHandler.create);
-    userRouter.get('/:id', userHandler.getOne);
-    userRouter.delete('/:id', userHandler.remove);
-    userRouter.get('/find/:name', userHandler.findByName);
+    userRouter.route('/')
+        .get(userHandler.getAll)
+        .post(userHandler.create);
+
+    userRouter.route('/find/:name')
+        .get(userHandler.findByName);
+
+    userRouter.route('/:id')
+        .get(userHandler.getOne)
+        .put(userHandler.update)
+        .delete(userHandler.remove);
 
     return userRouter;
 };
