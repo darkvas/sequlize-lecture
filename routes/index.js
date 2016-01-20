@@ -7,6 +7,7 @@ module.exports = function(app) {
 
     var userRouter = require('./user')(app);
     var postRouter = require('./post')(app);
+    var personRouter = require('./person')(app);
 
     app.use(bodyParser.json());
 
@@ -17,6 +18,7 @@ module.exports = function(app) {
 
     app.use('/user', userRouter); //http://user/pupkin/90
     app.use('/post', postRouter);
+    app.use('/person', personRouter);
 
     app.use(function (err, req, res, next) {
         var status = err.status || 500;

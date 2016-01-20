@@ -5,7 +5,7 @@ var app = express();
 var port = process.env.PORT || 3030;
 
 var Sequelize = require("sequelize");
-var sequelize = new Sequelize('test_courses', 'postgres', 'postgres', {
+var sequelize = new Sequelize('sequelizeDB', 'postgres', 'postgres', {
     host: 'localhost',
     dialect: 'postgres', //'mysql'|'mariadb'|'sqlite'|'postgres'|'mssql',
 
