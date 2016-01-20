@@ -41,12 +41,6 @@ var PostHandler = function (app) {
             })
             .catch(next)
 
-        /*
-        sequelize.query('SELECT * FROM "users"', { type: sequelize.QueryTypes.SELECT})
-            .then(function(users) {
-                res.status(200).send(users);
-            })
-            .catch(next);*/
     };
 
     this.getOne = function (req, res, next) {
@@ -63,11 +57,12 @@ var PostHandler = function (app) {
             .then(function (post) {
                 res.status(200).send(post);
             })
-            .catch(function(err){
+            .catch(function (err) {
 
                 next(err);
             })
     };
+
 };
 
 module.exports = PostHandler;

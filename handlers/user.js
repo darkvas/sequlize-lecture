@@ -105,7 +105,20 @@ var UserHandler = function (app) {
                 res.status(200).send(users);
             })
             .catch(next)
-    }
+    };
+
+    this.getRawUsers = function (req, res, next) {
+
+        pgSequelize.query('SELECT * FROM "users"', {type: pgSequelize.QueryTypes.SELECT }) //model: User
+            .then(function (users) {
+
+                res.status(200).send(users);
+            })
+            .catch(function(err){
+                next(err);
+            });
+    };
+
 };
 
 module.exports = UserHandler;

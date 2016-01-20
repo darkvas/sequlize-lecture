@@ -13,6 +13,9 @@ module.exports = function(app) {
     userRouter.route('/find/:name')
         .get(userHandler.findByName);
 
+    userRouter.route('/raw')
+        .get(userHandler.getRawUsers);
+
     userRouter.route('/:id')
         .get(userHandler.getOne)
         .put(userHandler.update)
