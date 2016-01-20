@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/romashka50/JSGroup3#readme",
   "dependencies": {
+    "async": "^1.5.2",
     "body-parser": "^1.13.3",
     "bookshelf": "^0.8.2",
     "express": "4.13.3",

@@ -15,6 +15,7 @@ var Models = function (pgSequelize) {
 
     pgSequelize
         .sync()
+        //.sync({force: true})
         .then(function () {
             console.log('Synced');
         })
